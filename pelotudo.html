@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio Personalizada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Zilla Slab", serif;
+            font-weight: 600;
+            font-style: normal;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: none;
+            position: relative;
+            z-index: 1;
+        }
+        header {
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(226, 194, 107, 0.9), rgba(76, 175, 80, 0));
+            padding: 30px 0;
+            color: rgb(133, 91, 0);
+            text-align: center;
+            font-size: 2em;
+            position: relative;
+            z-index: 2;
+        }
+        .container {
+            width: 80%;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            position: relative;
+            z-index: 2;
+        }
+        .widget {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            width: 45%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .widget h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .links {
+            list-style: none;
+            padding: 0;
+        }
+        .links li {
+            margin: 10px 0;
+        }
+        .links a {
+            text-decoration: none;
+            color: #dff592;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        #clock {
+            font-size: 2em;
+            text-align: center;
+        }
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+<video autoplay muted loop>
+    <source src="zoro-one-piece.3840x2160.mp4" type="video/mp4">
+    Tu navegador no soporta el elemento de video.
+</video>
+
+<header>Página de Inicio: Sergator</header>
+
+<div class="container">
+    <div class="widget">
+        <h2>Enlaces de Interés</h2>
+        <ul class="links">
+            <li><a href="https://www.google.com" target="_blank">Google</a></li>
+            <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+            <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+            <li><a href="https://www.reddit.com" target="_blank">Reddit</a></li>
+            <li><a href="https://www.medium.com" target="_blank">Medium</a></li>
+        </ul>
+    </div>
+
+    <div class="widget" id="todo-widget">
+        <h2>Lista de Tareas</h2>
+        <ul id="todo-list">
+            <!-- Aquí se agregarán las tareas -->
+        </ul>
+        <input type="text" id="new-task" placeholder="Nueva tarea...">
+        <button onclick="addTask()">Agregar</button>
+    </div>
+
+    <div class="widget" id="clock-widget">
+        <h2>Reloj</h2>
+        <div id="clock"></div>
+    </div>
+
+    <div class="widget">
+        <h2>Notas</h2>
+        <textarea id="notes" rows="10" cols="30" placeholder="Escribe tus notas aquí..."></textarea>
+    </div>
+</div>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    function addTask() {
+        const taskInput = document.getElementById('new-task');
+        const taskText = taskInput.value.trim();
+        if (taskText) {
+            const taskItem = document.createElement('li');
+            taskItem.innerText = taskText;
+            document.getElementById('todo-list').appendChild(taskItem);
+            taskInput.value = '';
+        }
+    }
+</script>
+
+</body>
+</html>
