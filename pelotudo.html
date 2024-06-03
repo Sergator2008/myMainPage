@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Inicio Personalizada</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: "Zilla Slab", serif;
@@ -41,35 +41,76 @@
             z-index: 2;
         }
         .widget {
-            background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid #ddd;
+            background-color: rgba(61, 192, 0, 0.281);
+            border: 1px solid #dddddda1;
             border-radius: 5px;
             padding: 20px;
             margin: 10px;
             width: 45%;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
         }
         .widget h2 {
             margin-top: 0;
             font-size: 1.5em;
         }
-        .links {
+        .containerInterior {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .containerInteriorCajaIndividual {
+            background-color: rgba(255, 255, 255, 0.534);
+            border: 1px solid #dddddda1;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
             list-style: none;
-            padding: 0;
         }
-        .links li {
-            margin: 10px 0;
+        .containerInteriorCajaIndividual img {
+            max-width: 144px;
+            max-height: 144px;
         }
-        .links a {
+        .containerInteriorCajaIndividual a {
+            display: block;
+            color: rgb(133, 91, 0);
             text-decoration: none;
-            color: #dff592;
+            margin-top: 10px;
         }
-        .links a:hover {
+        .containerInteriorCajaIndividual a:hover {
             text-decoration: underline;
         }
-        #clock {
-            font-size: 2em;
-            text-align: center;
+        .listaEnlaces {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .enlaceItem {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.534);
+            border: 1px solid #dddddda1;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .enlaceItem img {
+            max-width: 60px;
+            max-height: 60px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        .enlaceItem a {
+            color: rgb(133, 91, 0);
+            text-decoration: none;
+            font-size:20px;
+            flex-grow: 1;
+        }
+        .enlaceItem a:hover {
+            text-decoration: underline;
         }
         video {
             position: fixed;
@@ -78,6 +119,9 @@
             min-width: 100%;
             min-height: 100%;
             z-index: -1;
+        }
+        .cajarara{
+            padding-top: 30px;
         }
     </style>
 </head>
@@ -93,58 +137,52 @@
 <div class="container">
     <div class="widget">
         <h2>Enlaces de Interés</h2>
-        <ul class="links">
-            <li><a href="https://www.google.com" target="_blank">Google</a></li>
-            <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
-            <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
-            <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
-            <li><a href="https://www.reddit.com" target="_blank">Reddit</a></li>
-            <li><a href="https://www.medium.com" target="_blank">Medium</a></li>
-        </ul>
-    </div>
-
-    <div class="widget" id="todo-widget">
-        <h2>Lista de Tareas</h2>
-        <ul id="todo-list">
-            <!-- Aquí se agregarán las tareas -->
-        </ul>
-        <input type="text" id="new-task" placeholder="Nueva tarea...">
-        <button onclick="addTask()">Agregar</button>
-    </div>
-
-    <div class="widget" id="clock-widget">
-        <h2>Reloj</h2>
-        <div id="clock"></div>
+        <div class="containerInterior">
+            <div class="containerInteriorCajaIndividual">
+                <img class="cajarara" src="Google.png" alt="Google">
+                <a class="cajarara" href="https://www.google.com" target="_blank">Google</a>
+            </div>
+            <div class="containerInteriorCajaIndividual">
+                <img src="Youtube-Icon.png" alt="YouTube">
+                <a href="https://www.youtube.com" target="_blank">YouTube</a>
+            </div>
+            <div class="containerInteriorCajaIndividual">
+                <img src="gmail.jpg" alt="Gmail">
+                <a href="https://www.gmail.com" target="_blank">Gmail</a>
+            </div>
+            <div class="containerInteriorCajaIndividual">
+                <img src="real_madrid_logo.png" alt="Real Madrid">
+                <a href="https://www.realmadrid.com/es-ES?itm_campaign=rm_header_sso-login_es&fanType=paidfan&refreshToken=D5240E6B578A48FD9747578812894CB1152AC15382F8FF28BF6CD9F5ECC110CFF88AA9BA4B073A3559D9ABF50C00F759550789B1DB5BD75DEED8199DE9119BBE&language=es-ES" target="_blank">Real Madrid</a>
+            </div>
+        </div>
     </div>
 
     <div class="widget">
-        <h2>Notas</h2>
-        <textarea id="notes" rows="10" cols="30" placeholder="Escribe tus notas aquí..."></textarea>
+        <h2>Otros Enlaces</h2>
+        <div class="listaEnlaces">
+            <div class="enlaceItem">
+                <img src="1297202_flv.png" alt="AnimeFLV">
+                <a href="https://www3.animeflv.net/" target="_blank">AnimeFLV</a>
+            </div>
+            <div class="enlaceItem">
+                <img src="Crunchyroll-Logo-2012-present.jpg" alt="Crunchyroll">
+                <a href="https://www.crunchyroll.com/es-es/" target="_blank">Crunchyroll</a>
+            </div>
+            <div class="enlaceItem">
+                <img src="google-classroom-logo.png" alt="Classroom">
+                <a href="https://classroom.google.com/" target="_blank">Classroom</a>
+            </div>
+            <div class="enlaceItem">
+                <img src="gpt.jpeg" alt="chatgpt">
+                <a href="https://chatgpt.com/?oai-dm=1" target="_blank">ChatGPT</a>
+            </div>
+            <div class="enlaceItem">
+                <img src="GitHub-Logo.png" alt="github">
+                <a href="https://github.com" target="_blank">GitHub</a>
+            </div>
+        </div>
     </div>
 </div>
-
-<script>
-    function updateClock() {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}`;
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    function addTask() {
-        const taskInput = document.getElementById('new-task');
-        const taskText = taskInput.value.trim();
-        if (taskText) {
-            const taskItem = document.createElement('li');
-            taskItem.innerText = taskText;
-            document.getElementById('todo-list').appendChild(taskItem);
-            taskInput.value = '';
-        }
-    }
-</script>
 
 </body>
 </html>
